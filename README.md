@@ -10,8 +10,8 @@ docker pull wordpress:apache
 docker pull mariadb:11.4
 Результат: оба образа успешно загружены.
 
-https://img/1.png
-https://img/2.png
+![Проверка версии Docker](img/1.png)
+![Проверка версии Docker](img/2.png)
 
 ## Шаг 2. Создание файла Compose
 Создан файл compose.yaml в директории ~/docker-lesson-02:
@@ -57,7 +57,7 @@ services:
 volumes:
   db_data:
   wp_data:
-https://img/3.png
+![Проверка версии Docker](img/3.png)
 
 ## Шаг 3. Запуск сервисов
 bash
@@ -70,7 +70,7 @@ db — статус Up (healthy)
 
 wordpress — статус Up, порт 127.0.0.1:8090->80/tcp
 
-https://img/4.png
+![Проверка версии Docker](img/4.png)
 
 Сайт открылся по адресу http://localhost:8090 — появился мастер установки WordPress.
 
@@ -87,7 +87,7 @@ https://img/4.png
 
 Email: student@example.com
 
-https://img/5.png
+![Проверка версии Docker](img/5.png)
 
 Создана запись «Моя практика Docker 2 W» с текстом:
 
@@ -96,7 +96,7 @@ https://img/5.png
 
 Запись опубликована, открыта по адресу http://localhost:8090/?p=7.
 
-https://img/6.png
+![Проверка версии Docker](img/6.png)
 
 ## Шаг 5. Логи и остановка сайта
 bash
@@ -109,8 +109,8 @@ wordpress — статус Exited (137)
 
 db — остаётся Up (healthy)
 
-https://img/7.png
-https://img/8.png
+![Проверка версии Docker](img/7.png)
+![Проверка версии Docker](img/8.png)
 
 При обновлении страницы сайт не загружался. После команды:
 
@@ -126,7 +126,7 @@ docker compose ps -a
 docker volume ls --filter label=com.docker.compose.project=docker-lesson-02
 Результат: контейнеры удалены, тома docker-lesson-02_db_data и docker-lesson-02_wp_data сохранены.
 
-https://img/9.png
+![Проверка версии Docker](img/9.png)
 
 Повторный запуск:
 
@@ -138,7 +138,7 @@ cat containers-before.txt
 cat containers-after.txt
 Идентификаторы контейнеров изменились, но запись и учётная запись сохранились — повторная установка WordPress не потребовалась.
 
-https://img/10.png
+![Проверка версии Docker](img/10.png)
 
 ## Шаг 7. Восстановление сайта после остановки базы данных
 Остановлен только сервис db:
@@ -152,7 +152,7 @@ db — статус Exited (0)
 
 wordpress — статус Up
 
-https://img/11.png
+![Проверка версии Docker](img/11.png)
 
 При обновлении страницы записи через Ctrl+F5 появилось сообщение об ошибке подключения к базе данных.
 
@@ -163,11 +163,11 @@ docker compose start db
 docker compose ps
 Результат: db — статус Up (healthy), wordpress — Up. Сайт снова заработал.
 
-https://img/12.png
+![Проверка версии Docker](img/12.png)
 
 В запись добавлена фраза «Работа базы восстановлена» и сохранена.
 
-https://img/13.png
+![Проверка версии Docker](img/13.png)
 
 Итог
 В ходе практического занятия:
